@@ -6,8 +6,16 @@
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(800, 600), "My window");
 
+    sf::RenderWindow window(sf::VideoMode(800, 600), "My window");
+	sf::Sprite spritetest;
+	sf::Texture texturetest;
+
+	if (!texturetest.loadFromFile("data/other_play.png"))
+	{
+		return EXIT_FAILURE;
+	}
+	spritetest.setTexture(texturetest);
     // run the program as long as the window is open
     while (window.isOpen())
     {
@@ -21,6 +29,7 @@ int main()
         }
 
 		window.clear(sf::Color::Black);
+		window.draw(spritetest);				
 		window.display();
     }
     return EXIT_SUCCESS;
